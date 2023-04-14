@@ -1,3 +1,5 @@
+"use strict";
+
 //greeting to the website in the console
 
 console.log('Hello from External JavaScript.');
@@ -53,7 +55,10 @@ var studentSchedule = confirm('Does this conflict with any other classes?');
 var premium = confirm('Are you a premium member?');
 var expired = confirm('Has the product offer expired?');
 var twoOrMore = confirm('Are you buying at least 2 items?');
-    if(premium === true && expired === false){
+
+//if-else statement determining if product applies
+
+if(premium === true && expired === false){
         alert('You have received the product offer!');
     } else if(expired === false && twoOrMore === true){
         alert('You have received the product offer!');
