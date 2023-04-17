@@ -99,6 +99,6 @@ alert('The amount you should tip is $' + calculateTip(askTip, mealCost) + '.')
         return a - (a * b);
     }
     let discount = prompt('What is the discount offered to you?');
-    let totalCost = parseInt(prompt('How much does everything cost?'));
+    let totalCost = prompt('How much does everything cost?');
     alert('With your discount, your final cost is $' + applyDiscount(totalCost, discount) + '.')
 }());
