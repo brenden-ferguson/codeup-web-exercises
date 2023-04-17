@@ -52,7 +52,10 @@
      * different result everytime you refresh the page if you are using the random
      * number)
      */
-
+function isTwo(number) {
+        return number === 2;
+    }
+    console.log(isTwo(random));
     /**
      * TODO:
      * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -64,14 +67,20 @@
      * > calculateTip(0.25, 25.50) // returns 6.375
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
-
+function calculateTip(a,b){
+    let tip = a*b
+        return tip;
+    }
+    console.log(calculateTip(0.15, 33.42));
     /**
      * TODO:
      * Use prompt and alert in combination with your calculateTip function to
      * prompt the user for the bill total and a percentage they would like to tip,
      * then display the dollar amount they should tip
      */
-
+let askTip = prompt('How much would you like to tip (as a percent)?');
+let mealCost = prompt('What was the cost of your meal?');
+alert('The amount you should tip is $' + calculateTip(askTip, mealCost) + '.')
     /**
      * TODO:
      * Create a function named `applyDiscount`. This function should accept a price
@@ -86,4 +95,11 @@
      *
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
+    function applyDiscount(a, b){
+        let price = a - (a * b)
+        return price;
+    }
+    let discount = prompt('What is the discount offered to you?');
+    let totalCost = parseInt(prompt('How much does everything cost?'));
+    alert('With your discount, your final cost is $' + applyDiscount(totalCost, discount) + '.')
 }());
