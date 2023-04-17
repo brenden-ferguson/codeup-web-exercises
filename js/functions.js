@@ -11,7 +11,7 @@
      * > sayHello("codeup") // returns "Hello, codeup!"
      */
     function sayHello(name){
-        return 'Hello, ';
+        return 'Hello, ' + name;
     }
     /**
      * TODO:
@@ -20,16 +20,16 @@
      *
      * console.log 'helloMessage' to check your work
      */
-    let yourName = prompt('What is your name?');
-    console.log(sayHello() + yourName);
+    let helloMessage = sayHello('Brenden');
+    console.log(helloMessage);
     /**
      * TODO:
      * Store your name as a string in a variable named 'myName', and pass that
      * variable to the 'sayHello' function. You should see the same output in the
      * console.
      */
-    let myName = 'Brenden';
-    console.log(sayHello() + myName);
+    let myName = prompt('What is your name?');
+    console.log(sayHello(myName));
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -55,6 +55,7 @@
 function isTwo(number) {
         return number === 2;
     }
+    console.log(random);
     console.log(isTwo(random));
     /**
      * TODO:
@@ -68,8 +69,7 @@ function isTwo(number) {
      * > calculateTip(0.15, 33.42) // returns 5.013
      */
 function calculateTip(a,b){
-    let tip = a*b
-        return tip;
+        return a * b;
     }
     console.log(calculateTip(0.15, 33.42));
     /**
@@ -96,8 +96,7 @@ alert('The amount you should tip is $' + calculateTip(askTip, mealCost) + '.')
      * > applyDiscount(45.99, 0.12) // 40.4712
      */
     function applyDiscount(a, b){
-        let price = a - (a * b)
-        return price;
+        return a - (a * b);
     }
     let discount = prompt('What is the discount offered to you?');
     let totalCost = parseInt(prompt('How much does everything cost?'));
