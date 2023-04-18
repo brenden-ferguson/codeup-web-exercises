@@ -128,6 +128,7 @@ function calculateTotal(){
  var luckyNumber = Math.floor(Math.random() * 6);
  console.log(luckyNumber);
 let groceryCost = prompt('How much are your groceries?');
+alert('Your lucky number was ' + luckyNumber)
 alert(calculateTotal());
 /**
  * TODO:
