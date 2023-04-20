@@ -4,10 +4,10 @@
 
     function skipNumber() {
         let askNumber;
-        while(true){
+        while (true) {
             askNumber = prompt('Pick an odd number between 1 and 50.')
-            if(askNumber % 2 !== 0 && askNumber > 0 && askNumber < 50)
-            break;
+            if (askNumber % 2 !== 0 && askNumber > 0 && askNumber < 50)
+                break;
         }
         for (let i = 1; i < 50; i++) {
             if (i == askNumber) {
@@ -24,7 +24,5 @@
 
     skipNumber();
 
-
-    
 
 })();
