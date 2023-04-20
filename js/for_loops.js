@@ -1,6 +1,6 @@
 "use strict";
 
-(function () {
+//(function () {
 
     function showMultiplicationTable(number) {
         for (let i = 1; i < 11; i++) {
@@ -52,4 +52,4 @@ minusFive();
 
 
 
-})();
+//})();
