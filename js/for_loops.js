@@ -10,11 +10,11 @@
 
     //showMultiplicationTable(4);
 
-    let randomTwenty = Math.floor((Math.random() * 180) + 20)
+//    let randomTwenty = Math.floor((Math.random() * 181) + 20)
 
     function evenOrOdd() {
-        for (let i = 0; i < 11; i++) {
-            let randomTwenty = Math.floor((Math.random() * 180) + 20)
+        for (let i = 1; i < 11; i++) {
+            let randomTwenty = Math.floor((Math.random() * 181) + 20)
             if (randomTwenty % 2 === 0) {
                 console.log(`${randomTwenty} is even.`);
             } else if (i % 2 !== 0) {
@@ -27,20 +27,21 @@
 
 //How Does This Work????
     function pyramid() {
+        let string = "";
         for (let i = 1; i < 10; i++) {
-            let string = "";
             for(let y = 1; y <= i; y++ ){
-                string = string + i;
+                string += i;
             }
-            console.log(string);//\n starts a new line, so everytime the initial for loop runs it starts a new line
+            string += '\n';//\n starts a new line, so everytime the initial for loop runs it starts a new line
         }
+        console.log(string);
     }
 pyramid();
 
 
 function minusFive(){
-    for(let i = 100; i > 0; i-=5){
-        console.log(`${i}`);
+    for(let i = 95; i > 0; i-=5){
+        console.log(i);
     }
 }
 
