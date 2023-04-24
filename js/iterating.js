@@ -2,19 +2,19 @@
     "use strict";
 
     /**
-     * TODO:
+     * TODOne:
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
     var names=['Jason', 'Shaine', 'Stephanie', 'Michael'];
     /**
-     * TODO:
+     * TODOne:
      * Create a log statement that will log the number of elements in the names
      * array.
      */
     console.log(names.length);
     /**
-     * TODO:
+     * TODOne:
      * Create log statements that will print each of the names individually by
      * accessing each element's index.
      */
@@ -24,7 +24,7 @@
     console.log(names[3]);
 
     /**
-     * TODO:
+     * TODOne:
      * Write some code that uses a for loop to log every item in the names
      * array.
      */
@@ -32,14 +32,14 @@
         console.log('The name at index ' + i + ' is: ' + names[i]);
     }
     /**
-     * TODO:
+     * TODOne:
      * Refactor your above code to use a `forEach` loop
      */
     names.forEach(function(name){
-        console.log('Here is a name: ' + name + '.');
+        console.log(name);
     });
     /**
-     * TODO:
+     * TODOne:
      * Create the following three functions, each will accept an array and
      * return an an element from it
      * - first: returns the first item in the array
