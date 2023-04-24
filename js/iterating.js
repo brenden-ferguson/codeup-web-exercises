@@ -53,21 +53,21 @@
      */
 
     let numberArr = [1,2,3,4,5];
-    function first(){
-        console.log(numberArr[0]);
+    function first(arr){
+        return arr[0] ;
     }
 
-    first();
+    console.log(first([1,2,3,4,5,6,7,8]));
 
-    function second(){
-        console.log(numberArr[1]);
+    function second(arr){
+        return arr[1] ;
     }
 
-    second();
+    console.log(second([1,2,3,4,5,6,7,8]));
 
-    function last(){
-        console.log(numberArr[numberArr.length-1]);
+    function last(arr){
+        return arr[arr.length-1];
     }
 
-    last();
+    console.log(last([1,2,3,4,5,6,7,8]));
 })();
