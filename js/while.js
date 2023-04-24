@@ -16,7 +16,7 @@ timesTwo();
 
 
 function noCones() {
-    let leftCones = Math.floor(Math.random() * 50) + 50;
+    let leftCones = Math.floor(Math.random() * 51) + 50;
         do {
             let sellCones = Math.floor(Math.random() * 5) + 1;
             if (sellCones <= leftCones) {
