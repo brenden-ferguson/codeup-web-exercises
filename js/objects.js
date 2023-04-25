@@ -1,8 +1,8 @@
-(function() {
+(function () {
     "use strict";
 
     /**
-     * TODO:
+     * TODOne:
      * Create an object with firstName and lastName properties that are strings
      * with your first and last name. Store this object in a variable named
      * `person`.
@@ -12,8 +12,13 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    let person = {
+        firstName: 'Brenden',
+        lastName: 'Ferguson'
+    }
+
     /**
-     * TODO:
+     * TODOne:
      * Add a sayHello method to the person object that returns a greeting using
      * the firstName and lastName properties.
      * console.log the returned message to check your work
@@ -21,8 +26,13 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+    function sayHello() {
+        return `Hello from ${person.firstName} ${person.lastName}!`;
+    }
 
-    /** TODO:
+    //console.log(sayHello());
+
+    /** TODOne:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
      * discount. Write a JS program, using conditionals, that logs to the
@@ -36,13 +46,26 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
 
-    /** TODO:
+
+    function discount() {
+        shoppers.forEach(function (shoppers) {
+            if (shoppers.amount > 200) {
+                console.log(`${shoppers.name} has to pay $${shoppers.amount - (shoppers.amount * .12)}.`)
+            } else if (shoppers.amount < 200) {
+                console.log(`${shoppers.name} still has to pay $${shoppers.amount}.`)
+            }
+        })
+    }
+
+    //discount();
+
+    /** TODOne:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
      * property. The author property should be an object with properties
@@ -55,8 +78,44 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    let books = [
+            {
+                title: 'IT', author: {
+                    firstName: 'Stephen',
+                    lastName: 'King'
+                }
+            },
+            {
+                title: 'The Hobbit', author: {
+                    firstName: 'J.R.R.',
+                    lastName: 'Tolkien'
+                }
+            },
+            {
+                title: 'Life of Pi', author: {
+                    firstName: 'Yann',
+                    lastName: 'Martel'
+                }
+            },
+            {
+                title: 'Labyrinth', author: {
+                    firstName: 'Kate',
+                    lastName: 'Moss'
+                }
+            },
+            {
+                title: 'Hannibal', author: {
+                    firstName: 'Thomas',
+                    lastName: 'Harris'
+                }
+            }
+        ]
+    ;
+
+//console.log(books[4].author.lastName);
+
     /**
-     * TODO:
+     * TODOne:
      * Loop through the books array and output the following information about
      * each book:
      * - the book number (use the index of the book in the array)
@@ -80,6 +139,20 @@
      *      ...
      */
 
+    function bookInfo() {
+        let bookNumber = 1
+        books.forEach(function (books) {
+            console.log(`Book # ${bookNumber}`);
+            console.log(`Title: ${books.title}`);
+            console.log(`Author: ${books.author.firstName} ${books.author.lastName}`);
+            console.log(`---`);
+            bookNumber++;
+        })
+    }
+
+    bookInfo();
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -90,5 +163,18 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(title, author) {
+        let newBook = {
+            title: prompt('Title:'),
+            author: {
+                firstName: prompt(`Author First Name:`),
+                lastName: prompt('Author Last Name:')
+            }
+        }
+        return `${newBook.title} written by ${newBook.author.lastName}, ${newBook.author.firstName}`;
+    }
+
+    createBook();
 
 })();
