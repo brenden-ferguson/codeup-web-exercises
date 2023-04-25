@@ -29,4 +29,8 @@ console.log(planetsJoin);
 
 //BONUS
 
+    let planetsUL = '<ul><li>' + planetsArray.join('</li><li>') + '</li></ul>'
+    //let planetsUL = `<ul><li>${planetsArray.join('</li><li>')}</li></ul>`
+console.log(planetsUL);
+
 })();
