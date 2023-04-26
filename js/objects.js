@@ -57,7 +57,7 @@
         shoppers.forEach(function (shoppers) {
             if (shoppers.amount > 200) {
                 console.log(`${shoppers.name} has to pay $${shoppers.amount - (shoppers.amount * .12)}.`)
-            } else if (shoppers.amount < 200) {
+            } else if (shoppers.amount <= 200) {
                 console.log(`${shoppers.name} still has to pay $${shoppers.amount}.`)
             }
         })
