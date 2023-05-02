@@ -1,6 +1,70 @@
 .fancy-header{
-    color: purple;
+    color: dodgerblue;
     text-decoration: underline;
 }
 /* this takes priority over inline/embedded styles */
+h1{
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
 
+h1,h2,h3,h4,h5,h6{
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+body {
+    background-color: mediumpurple;
+    font-family: "Comic Sans MS";
+}
+
+body {
+    background: url("../img/movie-the-breakfast-club-john-bender-judd-nelson-wallpaper-tbmgy.html") no-repeat center center fixed;
+    background-size: cover;
+    color: red;
+}
+
+li {
+    list-style: square;
+    color: indianred;
+}
+
+th{
+    padding: 20px;
+    font-size: 20px;
+    color: red;
+}
+
+tr{
+    padding: 20px;
+    font-size: 18px;
+    color: indianred;
+}
+
+a:link {
+    color: yellow;
+}
+
+a:visited {
+    color: orange;
+}
+
+a:hover {
+    color: purple;
+}
+
+a:active {
+    color: green;
+}
+
+img {
+    border: 5px solid black;
+    width: 25em;
+    height: 25em;
+}
+
+hr {
+    background-color: black;
+    height: 2px;
+}
