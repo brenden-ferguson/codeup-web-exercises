@@ -17,16 +17,21 @@ function findFactors(input) {
 }
 
 
-function countEs(input, letter) {
-    let count = 0
-    if (typeof input === "string") {
-        for (i = 0; i < input.length; i++) {
-            if (input.charAt(i) == letter.toLowerCase()) {
-                count += 1
+function countEs(str) {
+    if (typeof str === "string") {
+        let count = 0
+        let normalizedStr = str.toLowerCase();
+        for (i = 0; i < str.length; i++) {
+            if (normalizedStr.charAt(i) === 'e') {
+                count++;
             }
         }
         return count;
     } else {
         return false;
     }
+}
+
+function hasEs(str){
+    return countEs(str) > 0;
 }
