@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+nav {
+    background: #c1c1c1;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    padding: 1em;
+    font-weight: bold;
+}
+nav a:hover {
+    background: black;
+}
+.nav-link:hover{
+    color: blue;
+}
+.logo{
+    flex-grow: 2;
+    font-family: 'Montserrat', sans-serif;
+}
+.left-nav{
+    flex-grow: 1;
+}
+.right-nav{
+
+}
