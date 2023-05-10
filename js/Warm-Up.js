@@ -57,3 +57,11 @@ function squared() {
         i *= i;
     } while (i < 1000000);
 }
+
+function addEmUp(arr){
+    let sum = 0;
+    arr.forEach(function(num) {
+        sum+=num
+    })
+    return sum;
+}
