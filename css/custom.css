@@ -1,0 +1,25 @@
+.bg-image{
+    background-image: url("/img/pizza.png");
+    height: 346px;
+    background-size: cover;
+}
+.welcome{
+    margin-bottom: 0;
+}
+.tab-content{
+    display: block;
+    border: .1em solid grey;
+    border-radius: .2em;
+}
+.btn-main{
+    display: flex;
+    justify-content: space-between;
+    width: 99%
+}
+.card{
+    margin: 1em;
+}
+.tab-header{
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
