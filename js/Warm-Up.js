@@ -65,3 +65,11 @@ function addEmUp(arr){
     })
     return sum;
 }
+
+function explainString(str){
+    return {
+        string: str,
+         numberofEs: countEs(str),
+         isEvenLength: str.length % 2 === 0
+     }
+}
