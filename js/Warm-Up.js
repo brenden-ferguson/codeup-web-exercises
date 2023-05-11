@@ -58,18 +58,18 @@ function squared() {
     } while (i < 1000000);
 }
 
-function addEmUp(arr){
+function addEmUp(arr) {
     let sum = 0;
-    arr.forEach(function(num) {
-        sum+=num
+    arr.forEach(function (num) {
+        sum += num
     })
     return sum;
 }
 
-function explainString(str){
+function explainString(str) {
     return {
         string: str,
-         numberofEs: countEs(str),
-         isEvenLength: str.length % 2 === 0
-     }
+        numberOfEs: countEs(str),
+        isEvenLength: str.length % 2 === 0
+    }
 }
