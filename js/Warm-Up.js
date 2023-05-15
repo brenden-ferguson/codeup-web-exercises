@@ -115,3 +115,11 @@ function extractNames(arr){
     })
     return bucket;
 }
+
+function largestHeight(arr){
+    let bucket =[];
+    arr.forEach(function(el){
+        bucket.push(el.heightInMM);
+    })
+    return Math.max(...bucket);
+}
