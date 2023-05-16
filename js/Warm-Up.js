@@ -116,10 +116,22 @@ function extractNames(arr){
     return bucket;
 }
 
-function largestHeight(arr){
-    let bucket =[];
+const getTallest = function(arr) {
+    let tallest = {heightInMM: 0};
+    arr.forEach(function(obj) {
+        if (obj.heightInMM > tallest.heightInMM) {
+            tallest = obj;
+        }
+    });
+    return tallest;
+};
+
+function singleFurColor(arr) {
+    let bucket = [];
     arr.forEach(function(el){
-        bucket.push(el.heightInMM);
-    })
-    return Math.max(...bucket);
+        if(el.fur.length === 1){
+            bucket.push(el)
+        }
+    });
+    return bucket;
 }
