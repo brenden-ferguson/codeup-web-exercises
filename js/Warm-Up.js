@@ -135,3 +135,12 @@ function singleFurColor(arr) {
     });
     return bucket;
 }
+
+function numArray(num) {
+    return {
+        number: num,
+        evenOrOdd: (num % 2 === 0) ? "even" : "odd",
+        factors: findFactors(num),
+        numberOfDigits: (`${num}`.length)
+    }
+}
