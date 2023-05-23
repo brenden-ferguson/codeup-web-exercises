@@ -144,3 +144,11 @@ function numArray(num) {
         numberOfDigits: (`${num}`.length)
     }
 }
+
+function multiplyElementsByThree(arr){
+    let bucket = [];
+    arr.forEach(function(el){
+       bucket.push(el * 3)
+    });
+    return bucket;
+}
