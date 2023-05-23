@@ -152,3 +152,5 @@ function multiplyElementsByThree(arr){
     });
     return bucket;
 }
+
+//W3RESOURCES.COM FOR TUTORIALS AND EXERCISES
