@@ -13,10 +13,6 @@ $(function () {
     let i = userCode.length;
     $(document).on('keyup', function(e){
         userCode.push(e.key);
-
-        console.log(userCode.length);
-        console.log(i);
-        console.log(userCode.at(i));
         checkCode();
     })
         function checkCode(){
@@ -29,6 +25,4 @@ $(function () {
             }
             i++;
         }
-
-
 });
