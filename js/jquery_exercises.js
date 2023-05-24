@@ -11,11 +11,10 @@ $(function () {
     let konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter']
     let userCode = [];
     let i = userCode.length;
-    $(document).on('keyup', function(e){
-        userCode.push(e.key);
-        checkCode();
-    })
-        function checkCode(){
+    $(document).on('keyup', checkCode)
+        function checkCode(e){
+            userCode.push(e.key);
+            console.log(userCode);
             if(userCode.at(i) !== konami.at(i)){
                 userCode.splice(0, userCode.length);
                 i = userCode.length - 1
@@ -25,4 +24,5 @@ $(function () {
             }
             i++;
         }
+
 });
