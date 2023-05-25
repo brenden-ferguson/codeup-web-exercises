@@ -1,0 +1,21 @@
+:root{
+    --deer-green: #20720D;
+    --special-color: #FDE100
+}
+
+
+
+
+
+
+.header{
+    color: var(--deer-green);
+}
+
+th{
+    color: var(--deer-green);
+}
+
+button{
+    color: var(--deer-green);
+}

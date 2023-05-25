@@ -11,7 +11,7 @@
         "quantity": 5,
         "categories": [
             "tool",
-            "powered"
+            " powered"
         ],
         "price": 100
     }, {
@@ -19,8 +19,8 @@
         "quantity": 5,
         "categories": [
             "tool",
-            "gas",
-            "outdoor"
+            " gas",
+            " outdoor"
         ],
         "price": 200
     }, {
@@ -30,5 +30,14 @@
             "tool"
         ],
         "price": 10
-    }
+    }, {
+    "title": "Chainsaw",
+    "quantity": 5,
+    "categories": [
+        "tool",
+        " electric",
+        " outdoor"
+    ],
+    "price": 200
+}
 ]
