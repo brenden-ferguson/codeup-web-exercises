@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container">
-    <div class="header row d-flex text-center bg-">
+    <div class="header row d-flex text-center">
         <h1 class="col-12">My Tool Store</h1>
     </div>
     <div class="row">
-        <table id="products" class="col-12">
+        <table id="products" class="col-12 mb-3 border border-2">
             <thead>
             <tr>
                 <th class="border border-2 text-center col-3">Title</th>
@@ -21,12 +21,16 @@
                 <th class="border border-2 text-center col-3">Categories</th>
             </tr>
             </thead>
-            <tbody id="insertProducts"></tbody>
+            <tbody id="insertProducts" class="text-center"></tbody>
         </table>
     </div>
-    <form class="p-0 d-flex justify-content-center">
-        <button type="submit" id="submitBtn">Show/Update Tools</button>
-    </form>
+    <div class="p-0 d-flex justify-content-center row">
+        <form>
+            <div class="d-flex justify-content-center">
+                <button type="submit" id="submitBtn">Show/Update Tools</button>
+            </div>
+        </form>
+    </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="js/ajax_store.js"></script>
