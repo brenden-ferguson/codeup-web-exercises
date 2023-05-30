@@ -1,0 +1,1 @@
+const token = 'pk.eyJ1IjoiYnJlbmRlbi1mZXJndXNvbiIsImEiOiJjbGlhZnY4NXAwMnBpM2NueHoxdjZieHowIn0.YwlQ6iBpyR2vtu24-v-8mw'
