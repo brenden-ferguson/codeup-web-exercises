@@ -24,6 +24,9 @@
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
+<button type="button" id="zoomUp">+</button>
+<button type="button" id="zoomDown">-</button>
+
 <!--Access Token-->
 <script src="js/access_tokens.js"></script>
 <!-- Mapbox Geocoder Util Methods -->
@@ -40,12 +43,16 @@
   });
 
   // the  geocode method from mapbox-geocoder-utils.js
-  geocode("202 Fremont Street Experience, Las Vegas, NV 89101", token).then(function(result) {
+  geocode(favoriteRestaurants[0].address, token).then(function(result) {
     console.log(result);
     map.setCenter(result);
-    map.setZoom(15);
+    map.setZoom(10);
   });
 
+  favoriteRestaurants.forEach(function (obj){
+    placeMarkerAndPopup(obj, token, map);
+  })
 </script>
+
 </body>
 </html>
