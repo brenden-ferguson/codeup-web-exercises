@@ -4,8 +4,7 @@
     console.log(data);
     let todayDate = new Date(data.list[0].dt * 1000);
     let daysArr = [];
-    let month;
-    let day;
+
 
 
     for(let i = 0; i < 39; i++){
@@ -20,85 +19,96 @@
             }
         }
     }
-    // console.log(daysArr)
 
+    let weatherHTML = '';
 
-// console.log(data.list[0].dtText.at(9))
-daysArr.forEach(function (day){
-    switch (day.getMonth()) {
-    case 0:
-    month = 'January';
-    break;
-    case 1:
-    month = 'February';
-    break;
-    case 2:
-    month = 'March';
-    break;
-    case 3:
-    month = 'April';
-    break;
-    case 4:
-    month = 'May';
-    break;
-    case 5:
-    month = 'June';
-    break;
-    case 6:
-    month = 'July';
-    break;
-    case 7:
-    month = 'August';
-    break;
-    case 8:
-    month = 'September';
-    break;
-    case 9:
-    month = 'October';
-    break;
-    case 10:
-    month = 'November';
-    break;
-    case 11:
-    month = 'December';
-    break;
-    default:
-    month = 'Smarch';
-    break;
-}
-    console.log(month);
+        function renderDays(daysArr){
+            for(let i = 0; i < daysArr.length; i++){
+                weatherHTML += showDays(daysArr[i]);
+            }
+            return weatherHTML;
+        }
 
+        function showDays(obj){
+            let month;
+            let day;
+            switch (obj.getMonth()) {
+                case 0:
+                    month = 'January';
+                    break;
+                case 1:
+                    month = 'February';
+                    break;
+                case 2:
+                    month = 'March';
+                    break;
+                case 3:
+                    month = 'April';
+                    break;
+                case 4:
+                    month = 'May';
+                    break;
+                case 5:
+                    month = 'June';
+                    break;
+                case 6:
+                    month = 'July';
+                    break;
+                case 7:
+                    month = 'August';
+                    break;
+                case 8:
+                    month = 'September';
+                    break;
+                case 9:
+                    month = 'October';
+                    break;
+                case 10:
+                    month = 'November';
+                    break;
+                case 11:
+                    month = 'December';
+                    break;
+                default:
+                    month = 'Smarch';
+                    break;
+            }
+            console.log(month);
+
+            switch (obj.getDay()) {
+                case 0:
+                    day = 'Sunday';
+                    break;
+                case 1:
+                    day = 'Monday';
+                    break;
+                case 2:
+                    day = 'Tuesday';
+                    break;
+                case 3:
+                    day = 'Wednesday';
+                    break;
+                case 4:
+                    day = 'Thursday';
+                    break;
+                case 5:
+                    day = 'Friday';
+                    break;
+                case 6:
+                    day = 'Saturday';
+                    break;
+                default:
+                    day = 'Stan\'s Day';
+                    break;
+            }
+            let weatherHTML = '<div>'
+            weatherHTML += '<h1>' + day + ', ' + month + ' ' + obj.getDate() + '</h1>'
+            weatherHTML += '<p>' + ''
+            weatherHTML += '</div>'
+            return weatherHTML;
+        }
+
+     $("#weather-info").html(renderDays(daysArr));
 })
 
-//     switch (todayDate.getDay()) {
-//     case 0:
-//     day = 'Sunday';
-//     break;
-//     case 1:
-//     day = 'Monday';
-//     break;
-//     case 2:
-//     day = 'Tuesday';
-//     break;
-//     case 3:
-//     day = 'Wednesday';
-//     break;
-//     case 4:
-//     day = 'Thursday';
-//     break;
-//     case 5:
-//     day = 'Friday';
-//     break;
-//     case 6:
-//     day = 'Saturday';
-//     break;
-//     default:
-//     day = 'Stan\'s Day';
-//     break;
-// }
-//
-//     let weatherHTML = `<section><h1>${day}, ${month} ${todayDate.getDate()}</h1><p>${data.list[0].main.temp_max} / ${data.list[0].main.temp_min}</p></section>`;
-//
-//     $("#weather-info").html(weatherHTML);
-})
 })();
