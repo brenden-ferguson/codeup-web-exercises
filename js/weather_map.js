@@ -1,38 +1,49 @@
-(function (){
+(function () {
     let latLong = [32.735687, -97.108063];
-    $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latLong[0]}&lon=${latLong[1]}&units=imperial&appid=${OWM_TOKEN}`).done(function(data) {
-    console.log(data);
-    let todayDate = new Date(data.list[0].dt * 1000);
-    let daysArr = [];
+    $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latLong[0]}&lon=${latLong[1]}&units=imperial&appid=${OWM_TOKEN}`).done(function (data) {
+        console.log(data);
+        let daysArr = [];
+        let daysTemp = [];
 
 
-
-    for(let i = 0; i < 39; i++){
-        // let dtText = data.list[i].dt_txt.at(9)
-        // console.log(data.list[i].dt_txt.at(9))
-        if(i === 0){
-            daysArr.push(new Date(data.list[i].dt * 1000))
-        }
-        if(i > 0){
-            if((data.list[i].dt_txt.at(9)) !== (data.list[i - 1].dt_txt.at(9))){
-                daysArr.push(new Date(data.list[i].dt * 1000))
+        for (let i = 0; i < 39; i++) {
+            if (i === 0) {
+                daysArr.push({
+                    day: new Date(data.list[i].dt * 1000),
+                    tempLow: data.list[i].main.temp_min,
+                    tempHigh: data.list[i].main.temp_max
+                })
+            }
+            if (i > 0) {
+                if ((data.list[i].dt_txt.at(9)) !== (data.list[i - 1].dt_txt.at(9))) {
+                    daysArr.push({
+                        day: new Date(data.list[i].dt * 1000),
+                        tempLow: data.list[i].main.temp_min,
+                        tempHigh: data.list[i].main.temp_max
+                    })
+                }
             }
         }
-    }
 
-    let weatherHTML = '';
+        console.log(daysArr);
 
-        function renderDays(daysArr){
-            for(let i = 0; i < daysArr.length; i++){
+        let weatherHTML = '';
+
+        function renderDays(daysArr) {
+            for (let i = 0; i < daysArr.length; i++) {
                 weatherHTML += showDays(daysArr[i]);
+                console.log(daysArr[i].tempHigh);
             }
             return weatherHTML;
         }
 
-        function showDays(obj){
+        function showDays(obj) {
             let month;
             let day;
-            switch (obj.getMonth()) {
+            let tempLow = obj.tempLow
+            let tempHigh = obj.tempHigh
+
+            switch (obj.day.getMonth()) {
                 case 0:
                     month = 'January';
                     break;
@@ -75,7 +86,7 @@
             }
             console.log(month);
 
-            switch (obj.getDay()) {
+            switch (obj.day.getDay()) {
                 case 0:
                     day = 'Sunday';
                     break;
@@ -102,13 +113,12 @@
                     break;
             }
             let weatherHTML = '<div>'
-            weatherHTML += '<h1>' + day + ', ' + month + ' ' + obj.getDate() + '</h1>'
-            // weatherHTML += '<p>' + ''
+            weatherHTML += '<h1>' + day + ', ' + month + ' ' + obj.day.getDate() + '</h1>'
+            weatherHTML += '<p>' + tempLow + ' / ' + tempHigh + '</p>'
             weatherHTML += '</div>'
             return weatherHTML;
         }
 
-     $("#weather-info").html(renderDays(daysArr));
-})
-
+        $("#weather-info").html(renderDays(daysArr));
+    })
 })();
