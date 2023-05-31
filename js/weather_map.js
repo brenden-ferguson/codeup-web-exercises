@@ -103,7 +103,7 @@
             }
             let weatherHTML = '<div>'
             weatherHTML += '<h1>' + day + ', ' + month + ' ' + obj.getDate() + '</h1>'
-            weatherHTML += '<p>' + ''
+            // weatherHTML += '<p>' + ''
             weatherHTML += '</div>'
             return weatherHTML;
         }
