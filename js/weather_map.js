@@ -1,7 +1,8 @@
 (function () {
+    // baseline coordinates
     let latLong = [32.735687, -97.108063];
 
-
+    // map js
     mapboxgl.accessToken = token;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -9,23 +10,24 @@
         zoom: 5, // starting zoom
     });
 
+    // marker js
     const marker = new mapboxgl.Marker({
         draggable: true
     })
         .setLngLat([latLong[1],latLong[0]])
         .addTo(map);
 
+    // updates coordinates based on marker position
     function onDragEnd() {
         const lngLat = marker.getLngLat();
             latLong.splice(0,2,lngLat.lat, lngLat.lng);
-            console.log(latLong)
             map.setZoom(5);
             displayInfo();
     }
 
     marker.on('dragend', onDragEnd);
 
-
+    // function to allow for user search
     function searchCity() {
         let userSearch = $('#city-search').val();
             geocode(userSearch, token).then(function (result) {
@@ -37,8 +39,11 @@
 
     $('#searchButton').on('click', searchCity);
 
+    // main function to display weather information based upon coordinates
+
     function displayInfo() {
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latLong[0]}&lon=${latLong[1]}&units=imperial&appid=${OWM_TOKEN}`).done(function (data) {
+            console.log(data);
             map.flyTo({
                 center: [latLong[1], latLong[0]],
                 essential: true
@@ -55,9 +60,11 @@
                 })
             }
 
-            console.log(latLong);
-
             let weatherHTML = '';
+            let currentCity = data.city.name;
+            $('.currentCity').html(currentCity)
+            console.log(currentCity)
+
 
             function renderDays(daysArr) {
                 for (let i = 0; i < daysArr.length; i++) {
@@ -73,6 +80,7 @@
                 let tempHigh = obj.tempHigh
                 let wind = obj.windSpeed
                 let weather;
+                let img;
 
                 switch (obj.day.getMonth()) {
                     case 0:
@@ -115,7 +123,6 @@
                         month = 'Smarch';
                         break;
                 }
-                console.log(month);
 
                 switch (obj.day.getDay()) {
                     case 0:
@@ -158,10 +165,11 @@
                         break;
                 }
 
+
                 let weatherHTML = '<div class="card col-2">'
                 weatherHTML += '<div class="card-header">' + day + ', ' + month + ' ' + obj.day.getDate() + '</div>'
-                weatherHTML += '<ul class="list-group list-group-flush">' + '<li class="list-group-item">' + 'Low and High: ' + tempLow + ' / ' + tempHigh +
-                    '<li class="list-group-item">' + 'Wind: ' + wind + 'mph' + '</li>' + '<li class="list-group-item">' + 'Weather: ' + weather + '</li>' + '</ul>'
+                weatherHTML += '<ul class="list-group list-group-flush">' + '<li class="list-group-item">' + '<h6>' + 'Low and High: ' + '</h6>' + tempLow + ' / ' + tempHigh +
+                    '<li class="list-group-item">' + '<h6>' + 'Wind: ' + '</h6>' + wind + 'mph' + '</li>' + '<li class="list-group-item">' + '<h6>' + 'Weather: ' + '</h6>' + weather + '</li>' + '</ul>'
                 weatherHTML += '</div>'
                 return weatherHTML;
             }

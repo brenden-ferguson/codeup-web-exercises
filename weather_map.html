@@ -11,10 +11,12 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet'/>
     <link href="css/weather_map.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-dark">
 <script src="js/access_tokens.js"></script>
-<div class="bg-primary text-light">
+<div class="bg-primary text-light d-flex justify-content-between">
     <h4 class="col-8">Weather Map</h4>
+    <h5 class="currentCity"></h5>
+
 </div>
 <div class="container">
     <div id="weather-info" class="row d-flex justify-content-center mt-3"></div>
