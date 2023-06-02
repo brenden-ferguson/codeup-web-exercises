@@ -14,7 +14,7 @@
 
     function displayInfo() {
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latLong[0]}&lon=${latLong[1]}&units=imperial&appid=${OWM_TOKEN}`).done(function (data) {
-            console.log(data);
+            let marker = data.city
             let daysArr = [];
             let city = data.city
             for (let i = 0; i < 39; i += 8) {
@@ -137,7 +137,7 @@
                 weatherHTML += '</div>'
                 return weatherHTML;
             }
-            placeMarkerAndPopup()
+            placeMarkerAndPopup(marker, token, map);
 
             $("#weather-info").html(renderDays(daysArr));
 
