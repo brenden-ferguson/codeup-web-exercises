@@ -166,7 +166,7 @@
                 }
 
 
-                let weatherHTML = '<div class="card col-2">'
+                let weatherHTML = '<div class="card col-2 bg-light">'
                 weatherHTML += '<div class="card-header">' + day + ', ' + month + ' ' + obj.day.getDate() + '</div>'
                 weatherHTML += '<ul class="list-group list-group-flush">' + '<li class="list-group-item">' + '<h6>' + 'Low and High: ' + '</h6>' + tempLow + ' / ' + tempHigh +
                     '<li class="list-group-item">' + '<h6>' + 'Wind: ' + '</h6>' + wind + 'mph' + '</li>' + '<li class="list-group-item">' + '<h6>' + 'Weather: ' + '</h6>' + weather + '</li>' + '</ul>'
