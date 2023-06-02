@@ -53,19 +53,18 @@ function reverseGeocode(coordinates, token) {
 }
 
 function placeMarkerAndPopup(info, token, map) {
-    geocode(info.address, token).then(function (coordinates) {
+    geocode(info.name, token).then(function (coordinates) {
         var popup = new mapboxgl.Popup()
             .setHTML(info.popupHTML);
         var marker = new mapboxgl.Marker()
             .setLngLat(coordinates)
             .addTo(map)
             .setPopup(popup);
-        marker.on('mouseenter', function () {
+        marker.on('click', function () {
             popup.addTo(map);
         })
     });
 }
-
 let favoriteRestaurants = [
     {
         name: "Hugo\'s Cellar",
@@ -85,7 +84,7 @@ let favoriteRestaurants = [
 let zoomAmount = 10;
 
 let zoomPlus = document.querySelector('#zoomUp');
-zoomPlus.addEventListener('click', function () {
+$('zoomPlus').on('click', function () {
     if (zoomAmount < 25) {
         zoomAmount += 5;
         map.setZoom(zoomAmount);
@@ -95,7 +94,7 @@ zoomPlus.addEventListener('click', function () {
 
 let zoomMinus = document.querySelector('#zoomDown');
 
-zoomMinus.addEventListener('click', function () {
+$('zoomMinus').on('click', function () {
     if (zoomAmount > 0) {
         zoomAmount -= 5;
         map.setZoom(zoomAmount);
