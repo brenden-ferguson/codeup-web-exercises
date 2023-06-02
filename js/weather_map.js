@@ -1,11 +1,36 @@
 (function () {
     let latLong = [32.735687, -97.108063];
+
+
+    mapboxgl.accessToken = token;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        zoom: 5, // starting zoom
+    });
+
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([latLong[1],latLong[0]])
+        .addTo(map);
+
+    function onDragEnd() {
+        const lngLat = marker.getLngLat();
+            latLong.splice(0,2,lngLat.lat, lngLat.lng);
+            console.log(latLong)
+            map.setZoom(5);
+            displayInfo();
+    }
+
+    marker.on('dragend', onDragEnd);
+
+
     function searchCity() {
         let userSearch = $('#city-search').val();
             geocode(userSearch, token).then(function (result) {
                 latLong.splice(0,2,result[1], result[0]);
-                map.setCenter(result);
-                map.setZoom(10);
+                map.setZoom(5);
                 displayInfo();
             });
     }
@@ -14,9 +39,12 @@
 
     function displayInfo() {
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${latLong[0]}&lon=${latLong[1]}&units=imperial&appid=${OWM_TOKEN}`).done(function (data) {
-            let marker = data.city
+            map.flyTo({
+                center: [latLong[1], latLong[0]],
+                essential: true
+            })
+            marker.setLngLat([latLong[1], latLong[0]]);
             let daysArr = [];
-            let city = data.city
             for (let i = 0; i < 39; i += 8) {
                 daysArr.push({
                     day: new Date(data.list[i].dt * 1000),
@@ -27,7 +55,7 @@
                 })
             }
 
-            console.log(daysArr);
+            console.log(latLong);
 
             let weatherHTML = '';
 
@@ -137,7 +165,6 @@
                 weatherHTML += '</div>'
                 return weatherHTML;
             }
-            placeMarkerAndPopup(marker, token, map);
 
             $("#weather-info").html(renderDays(daysArr));
 

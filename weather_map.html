@@ -26,15 +26,6 @@
         </form>
     </div>
     <div id='map'></div>
-    <script>
-        mapboxgl.accessToken = token;
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: [-97.1081, 32.7357], // starting position [lng, lat]
-            zoom: 10, // starting zoom
-        });
-    </script>
 </div>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/weather_map.js"></script>
