@@ -1,8 +1,11 @@
 (function () {
+
     // baseline coordinates
+
     let latLong = [32.735687, -97.108063];
 
     // map js
+
     mapboxgl.accessToken = token;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -11,6 +14,7 @@
     });
 
     // marker js
+
     const marker = new mapboxgl.Marker({
         draggable: true
     })
@@ -18,6 +22,7 @@
         .addTo(map);
 
     // updates coordinates based on marker position
+
     function onDragEnd() {
         const lngLat = marker.getLngLat();
             latLong.splice(0,2,lngLat.lat, lngLat.lng);
@@ -50,7 +55,12 @@
             })
             marker.setLngLat([latLong[1], latLong[0]]);
             let daysArr = [];
+            let weatherHTML = '';
+            let currentCity = data.city.name;
             for (let i = 0; i < 39; i += 8) {
+
+                // pushes weather info into an array to use for cards
+
                 daysArr.push({
                     day: new Date(data.list[i].dt * 1000),
                     tempLow: data.list[i].main.temp_min,
@@ -60,12 +70,10 @@
                 })
             }
 
-            let weatherHTML = '';
-            let currentCity = data.city.name;
+            // adds current city into the header div
             $('.currentCity').html(currentCity)
-            console.log(currentCity)
 
-
+            // stores weather info into a variable for the cards
             function renderDays(daysArr) {
                 for (let i = 0; i < daysArr.length; i++) {
                     weatherHTML += showDays(daysArr[i]);
@@ -80,7 +88,6 @@
                 let tempHigh = obj.tempHigh
                 let wind = obj.windSpeed
                 let weather;
-                let img;
 
                 switch (obj.day.getMonth()) {
                     case 0:
@@ -164,7 +171,6 @@
                         weather = 'invalid'
                         break;
                 }
-
 
                 let weatherHTML = '<div class="card col-2 bg-light">'
                 weatherHTML += '<div class="card-header">' + day + ', ' + month + ' ' + obj.day.getDate() + '</div>'
