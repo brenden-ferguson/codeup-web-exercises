@@ -54,6 +54,9 @@
             })
             marker.setLngLat([latLong[1], latLong[0]]);
             let daysArr = [];
+            // daysArr =[
+            // {dayone
+            // },{daytwo
 
             for (let i = 0; i < 39; i += 8) {
                 // pushes weather info into an array to use for cards
