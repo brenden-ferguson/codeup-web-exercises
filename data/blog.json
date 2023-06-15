@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Post 1",
+    "content": "Morning: ",
+    "content2": [
+      "(What Happened in the morning)"
+    ],
+    "price": 20
+  },
+  {
+    "title": "Post 2",
+    "content": "Noon: ",
+    "content2": [
+      "(What Happened at noon)"
+    ]
+  },
+  {
+    "title": "Post 3",
+    "content": "Night: ",
+    "content2": [
+      "(What Happened in the evening)"
+    ]
+  },
+  {
+    "title": "Post 4",
+    "content": "Dreams: ",
+    "content2": [
+      "(What Happened in dreams)"
+    ]
+  }
+]
